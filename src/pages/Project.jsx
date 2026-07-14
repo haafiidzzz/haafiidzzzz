@@ -1,4 +1,5 @@
 import Footer from "../components/Footer";
+import Reveal from "../components/Reveal";
 
 const projects = [
   { img: "/assets/icon/MENU AWAL FIX.png", title: "Car Game", desc: "Using C++ and SFML · Game Project" },
@@ -12,41 +13,45 @@ const projects = [
 export default function Project() {
   return (
     <>
-      {/* Grid BG */}
       <div
         className="fixed inset-0 z-0 pointer-events-none"
         style={{
           background: `
-            radial-gradient(ellipse at top center, rgba(124,58,237,0.28), transparent 65%),
-            linear-gradient(to right, rgba(124,58,237,0.16) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(124,58,237,0.16) 1px, transparent 1px)
+            radial-gradient(ellipse at top center, rgba(201,164,99,0.14), transparent 65%),
+            linear-gradient(to right, rgba(201,164,99,0.06) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(201,164,99,0.06) 1px, transparent 1px)
           `,
           backgroundSize: "100% 100%, 48px 48px, 48px 48px",
         }}
       />
 
       <section className="relative z-10 pt-28 pb-40 max-w-5xl mx-auto px-6 text-center">
-        <p className="text-gray-400 text-sm tracking-widest mb-4">FEATURED WORK</p>
-        <h1 className="text-3xl md:text-4xl font-bold leading-tight mb-20">
-          Projects I've Worked On<br />That Have Helped Me Grow
-        </h1>
+        <Reveal>
+          <p className="text-gold text-sm tracking-[0.28em] uppercase mb-4">Featured Work</p>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <h1 className="font-display text-3xl md:text-5xl font-medium leading-tight mb-20">
+            Projects I've Worked On<br />That Have Helped Me <span className="italic text-gold">Grow</span>
+          </h1>
+        </Reveal>
 
         <div className="flex flex-col gap-6 mt-6">
           {projects.map(({ img, title, desc }, i) => (
-            <div
-              key={i}
-              className="relative rounded-[18px] overflow-hidden bg-[#1a1a1a] group"
-            >
-              <img
-                src={img}
-                alt={title}
-                className="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-              />
-              <div className="px-5 py-4 text-left bg-[#1a1a1a]">
-                <h3 className="text-sm font-semibold text-white">{title}</h3>
-                <p className="text-xs text-purple-300 mt-1">{desc}</p>
+            <Reveal key={i} delay={i * 0.08} y={36}>
+              <div className="relative rounded-[4px] overflow-hidden bg-ink-soft border border-ink-line group">
+                <div className="overflow-hidden">
+                  <img
+                    src={img}
+                    alt={title}
+                    className="w-full aspect-video object-cover transition-transform duration-700 ease-out grayscale-[35%] group-hover:grayscale-0 group-hover:scale-[1.05]"
+                  />
+                </div>
+                <div className="px-5 py-4 text-left flex items-baseline justify-between border-t border-ink-line">
+                  <h3 className="font-display text-base">{title}</h3>
+                  <p className="text-xs text-gold tracking-widest uppercase">{desc}</p>
+                </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>

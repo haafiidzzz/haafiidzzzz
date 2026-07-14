@@ -1,4 +1,5 @@
 import Footer from "../components/Footer";
+import Reveal from "../components/Reveal";
 
 const SI = "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons";
 
@@ -15,26 +16,33 @@ export default function Contact() {
     <>
       <section className="pt-32 pb-40">
         <div className="max-w-xl mx-auto px-6 text-center">
-          <p className="text-sm tracking-widest text-purple-400 mb-4">GET IN TOUCH</p>
-          <h1 className="text-4xl font-bold mb-16">Connect With Me</h1>
+          <Reveal>
+            <p className="text-sm tracking-[0.28em] text-gold uppercase mb-4">Get In Touch</p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <h1 className="font-display text-4xl md:text-5xl font-medium mb-16">
+              Connect With <span className="italic text-gold">Me</span>
+            </h1>
+          </Reveal>
           <div className="flex flex-wrap justify-center gap-8">
-            {contacts.map(({ href, icon, label }) => (
-              <a
-                key={icon}
-                href={href}
-                target="_blank"
-                rel="noreferrer"
-                className="flex flex-col items-center gap-3 group"
-              >
-                <div className="w-20 h-20 flex items-center justify-center rounded-2xl bg-[#141414] border border-white/10 group-hover:border-purple-500 transition-all duration-300 group-hover:shadow-[0_0_25px_rgba(124,58,237,0.5)]">
-                  <img
-                    src={`${SI}/${icon}.svg`}
-                    alt={label}
-                    className="w-9 h-9 invert opacity-70 group-hover:opacity-100 transition"
-                  />
-                </div>
-                <span className="text-xs text-gray-500 group-hover:text-purple-400 transition-colors">{label}</span>
-              </a>
+            {contacts.map(({ href, icon, label }, i) => (
+              <Reveal key={icon} delay={0.15 + i * 0.06} y={16}>
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex flex-col items-center gap-3 group"
+                >
+                  <div className="w-20 h-20 flex items-center justify-center rounded-2xl bg-ink-soft border border-ink-line group-hover:border-gold transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_10px_30px_rgba(201,164,99,0.25)]">
+                    <img
+                      src={`${SI}/${icon}.svg`}
+                      alt={label}
+                      className="w-9 h-9 invert opacity-60 group-hover:opacity-100 transition"
+                    />
+                  </div>
+                  <span className="text-xs text-paper-dim group-hover:text-gold transition-colors tracking-wide">{label}</span>
+                </a>
+              </Reveal>
             ))}
           </div>
         </div>
