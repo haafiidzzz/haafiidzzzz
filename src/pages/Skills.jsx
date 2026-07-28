@@ -17,34 +17,35 @@ const skills = [
 export default function Skills() {
   return (
     <>
-      <section className="relative pt-32 pb-20 text-center">
+      <section className="relative pt-16 pb-16 max-w-6xl mx-auto px-6">
         <span
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[110px] tracking-[6px] select-none pointer-events-none whitespace-nowrap"
-          style={{ color: "rgba(243,239,230,0.035)" }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[110px] tracking-[6px] select-none pointer-events-none whitespace-nowrap text-ink/[0.03]"
         >
           THE SKILLS
         </span>
         <Reveal>
-          <p className="relative z-10 text-gold text-sm tracking-[0.28em] uppercase mb-4">What I Work With</p>
+          <p className="relative z-10 text-xs tracking-[0.28em] uppercase text-paper-dim mb-4">What I Work With</p>
         </Reveal>
         <Reveal delay={0.1}>
-          <h1 className="relative z-10 font-display text-4xl md:text-5xl font-medium">
-            Tools and <span className="italic text-gold">Skills</span>
+          <h1 className="relative z-10 font-display uppercase text-4xl md:text-6xl leading-[0.95] max-w-2xl">
+            Tools &amp; <span className="text-accent">Skills</span>.
           </h1>
         </Reveal>
       </section>
 
-      <section className="pb-40">
-        <div className="grid grid-cols-4 gap-12 max-w-[520px] mx-auto px-6 place-items-center">
+      <section className="pb-32 max-w-6xl mx-auto px-6">
+        <div className="grid grid-cols-2 sm:grid-cols-4 border-t border-l border-line">
           {skills.map(({ icon, label }, i) => (
             <Reveal key={icon} delay={i * 0.05} y={16}>
-              <div className="flex flex-col items-center gap-3 group">
+              <div className="group flex flex-col items-center justify-center gap-4 border-r border-b border-line py-12 hover:bg-ink hover:text-paper transition-colors duration-300">
                 <img
                   src={`${SI}/${icon}.svg`}
                   alt={label}
-                  className="w-14 h-14 invert opacity-55 transition-all duration-300 group-hover:opacity-100 group-hover:scale-110 group-hover:drop-shadow-[0_0_18px_rgba(201,164,99,0.6)]"
+                  className="w-10 h-10 opacity-70 group-hover:invert group-hover:opacity-100 transition-all duration-300"
                 />
-                <span className="text-xs text-paper-dim group-hover:text-gold transition-colors tracking-wide">{label}</span>
+                <span className="text-xs text-paper-dim group-hover:text-accent transition-colors tracking-widest uppercase">
+                  {label}
+                </span>
               </div>
             </Reveal>
           ))}

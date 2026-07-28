@@ -13,42 +13,30 @@ const projects = [
 export default function Project() {
   return (
     <>
-      <div
-        className="fixed inset-0 z-0 pointer-events-none"
-        style={{
-          background: `
-            radial-gradient(ellipse at top center, rgba(201,164,99,0.14), transparent 65%),
-            linear-gradient(to right, rgba(201,164,99,0.06) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(201,164,99,0.06) 1px, transparent 1px)
-          `,
-          backgroundSize: "100% 100%, 48px 48px, 48px 48px",
-        }}
-      />
-
-      <section className="relative z-10 pt-28 pb-40 max-w-5xl mx-auto px-6 text-center">
+      <section className="pt-16 pb-32 max-w-7xl mx-auto px-6">
         <Reveal>
-          <p className="text-gold text-sm tracking-[0.28em] uppercase mb-4">Featured Work</p>
+          <p className="text-xs tracking-[0.28em] uppercase text-paper-dim mb-4">Featured Work</p>
         </Reveal>
         <Reveal delay={0.1}>
-          <h1 className="font-display text-3xl md:text-5xl font-medium leading-tight mb-20">
-            Projects I've Worked On<br />That Have Helped Me <span className="italic text-gold">Grow</span>
+          <h1 className="font-display uppercase text-4xl md:text-6xl leading-[0.95] mb-16 max-w-3xl">
+            Projects I've worked on that helped me <span className="text-accent">grow</span>.
           </h1>
         </Reveal>
 
-        <div className="flex flex-col gap-6 mt-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map(({ img, title, desc }, i) => (
-            <Reveal key={i} delay={i * 0.08} y={36}>
-              <div className="relative rounded-[4px] overflow-hidden bg-ink-soft border border-ink-line group">
-                <div className="overflow-hidden">
+            <Reveal key={i} delay={i * 0.06} y={28}>
+              <div className="group">
+                <div className="aspect-[4/3] overflow-hidden bg-ink/5">
                   <img
                     src={img}
                     alt={title}
-                    className="w-full aspect-video object-cover transition-transform duration-700 ease-out grayscale-[35%] group-hover:grayscale-0 group-hover:scale-[1.05]"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
                   />
                 </div>
-                <div className="px-5 py-4 text-left flex items-baseline justify-between border-t border-ink-line">
-                  <h3 className="font-display text-base">{title}</h3>
-                  <p className="text-xs text-gold tracking-widest uppercase">{desc}</p>
+                <div className="pt-4 flex items-baseline justify-between gap-3">
+                  <h3 className="font-medium">{title}</h3>
+                  <p className="text-xs text-accent-dim tracking-widest uppercase text-right shrink-0">{desc}</p>
                 </div>
               </div>
             </Reveal>

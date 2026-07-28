@@ -27,42 +27,31 @@ const experiences = [
 export default function Experience() {
   return (
     <>
-      <div
-        className="fixed inset-0 z-0 pointer-events-none"
-        style={{
-          background: `
-            radial-gradient(ellipse at top center, rgba(201,164,99,0.14), transparent 65%),
-            linear-gradient(to right, rgba(201,164,99,0.06) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(201,164,99,0.06) 1px, transparent 1px)
-          `,
-          backgroundSize: "100% 100%, 48px 48px, 48px 48px",
-        }}
-      />
-
-      <section className="relative z-10 pt-20 pb-40 max-w-5xl mx-auto px-6">
+      <section className="pt-16 pb-32 max-w-6xl mx-auto px-6">
         <Reveal>
-          <p className="text-gold text-sm tracking-[0.28em] uppercase mb-4 text-center">Experience &amp; Activities</p>
+          <p className="text-xs tracking-[0.28em] uppercase text-paper-dim mb-4">Experience &amp; Activities</p>
         </Reveal>
         <Reveal delay={0.1}>
-          <h1 className="font-display text-3xl md:text-5xl font-medium leading-tight mb-20 text-center">
-            Experiences That Shape My Skills<br />and <span className="italic text-gold">Professional Growth</span>
+          <h1 className="font-display uppercase text-4xl md:text-6xl leading-[0.95] mb-16 max-w-3xl">
+            Experiences that shape my <span className="text-accent">growth</span>.
           </h1>
         </Reveal>
 
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col">
           {experiences.map(({ img, title, desc }, i) => (
             <Reveal key={i} delay={i * 0.08} y={24}>
-              <div className="flex flex-col md:flex-row gap-6 items-start bg-ink-soft rounded-2xl p-6 border border-ink-line hover:border-gold/40 transition-colors duration-300">
-                <div className="w-full md:w-48 flex-shrink-0 overflow-hidden rounded-xl">
+              <div className="flex flex-col md:flex-row gap-8 items-start py-10 border-t border-line last:border-b">
+                <span className="font-display text-2xl text-line shrink-0 hidden md:block">0{i + 1}</span>
+                <div className="w-full md:w-56 flex-shrink-0 overflow-hidden bg-ink/5 aspect-[4/3]">
                   <img
                     src={img}
                     alt={title}
-                    className="w-full h-32 object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-500 hover:scale-105"
+                    className="w-full h-full object-cover hover:scale-105 transition-all duration-500"
                   />
                 </div>
                 <div>
-                  <h3 className="font-display text-lg mb-2">{title}</h3>
-                  <p className="text-paper-dim leading-relaxed text-sm">{desc}</p>
+                  <h3 className="font-medium text-lg mb-2">{title}</h3>
+                  <p className="text-paper-dim leading-relaxed text-sm max-w-xl">{desc}</p>
                 </div>
               </div>
             </Reveal>

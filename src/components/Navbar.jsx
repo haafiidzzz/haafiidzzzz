@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { to: "/", label: "Home" },
-  { to: "/project", label: "Project" },
+  { to: "/project", label: "Work" },
   { to: "/experience", label: "Experience" },
   { to: "/skills", label: "Skills" },
 ];
@@ -21,27 +21,25 @@ export default function Navbar() {
   }, []);
 
   const linkClass = ({ isActive }) =>
-    `relative py-1 text-[13px] tracking-[0.18em] uppercase transition-colors ${
-      isActive ? "text-paper" : "text-paper-dim hover:text-paper"
+    `relative py-1 text-[13px] tracking-[0.14em] uppercase font-medium transition-colors ${
+      isActive ? "text-ink" : "text-paper-dim hover:text-ink"
     }`;
 
   const mobileLinkClass = ({ isActive }) =>
-    `text-2xl font-display transition-colors ${
-      isActive ? "text-gold" : "text-paper-dim hover:text-paper"
+    `text-3xl font-display uppercase transition-colors ${
+      isActive ? "text-ink" : "text-paper-dim hover:text-ink"
     }`;
 
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-          scrolled
-            ? "bg-ink/85 backdrop-blur-md border-b border-ink-line"
-            : "bg-transparent border-b border-transparent"
+        className={`fixed top-0 left-0 w-full z-50 bg-paper transition-all duration-300 border-b ${
+          scrolled ? "border-line" : "border-transparent"
         }`}
       >
-        <div className="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
-          <NavLink to="/" className="font-display text-[22px] tracking-wide text-paper">
-            Hafidz<span className="text-gold">.</span>
+        <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+          <NavLink to="/" className="font-display text-lg tracking-tight text-ink">
+            HAFIDZ<span className="text-accent">.</span>
           </NavLink>
 
           <ul className="hidden md:flex gap-9 list-none items-center">
@@ -52,7 +50,7 @@ export default function Navbar() {
                     <span className="relative inline-block">
                       {label}
                       <span
-                        className={`absolute left-0 -bottom-1.5 h-px bg-gold transition-all duration-300 ${
+                        className={`absolute left-0 -bottom-1.5 h-[2px] bg-accent transition-all duration-300 ${
                           isActive ? "w-full" : "w-0"
                         }`}
                       />
@@ -61,33 +59,37 @@ export default function Navbar() {
                 </NavLink>
               </li>
             ))}
-            <li>
-              <NavLink
-                to="/contact"
-                className={({ isActive }) =>
-                  `px-5 py-2 border text-[13px] tracking-[0.18em] uppercase transition-all duration-300 ${
-                    isActive
-                      ? "bg-gold text-ink border-gold"
-                      : "border-gold/50 text-paper hover:bg-gold hover:text-ink hover:border-gold"
-                  }`
-                }
-              >
-                Contact
-              </NavLink>
-            </li>
           </ul>
 
-          <button
-            className="md:hidden text-paper focus:outline-none z-50 relative"
-            onClick={() => setOpen(!open)}
-            aria-label="Toggle menu"
-          >
-            <div className="w-7 flex flex-col gap-[6px]">
-              <span className={`h-px bg-paper transition-all duration-300 ${open ? "rotate-45 translate-y-[7px]" : ""}`} />
-              <span className={`h-px bg-paper transition-all duration-300 ${open ? "opacity-0" : "opacity-100"}`} />
-              <span className={`h-px bg-paper transition-all duration-300 ${open ? "-rotate-45 -translate-y-[7px]" : ""}`} />
-            </div>
-          </button>
+          <div className="flex items-center gap-4">
+            <NavLink
+              to="/contact"
+              className="hidden sm:inline-block px-5 py-2 text-[13px] tracking-[0.14em] uppercase font-medium border border-ink text-ink hover:bg-ink hover:text-paper transition-all duration-300"
+            >
+              Contact
+            </NavLink>
+            <NavLink
+              to="/contact"
+              aria-label="Contact"
+              className="w-11 h-11 rounded-full bg-accent text-ink flex items-center justify-center hover:bg-ink hover:text-accent transition-all duration-300 shrink-0"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M7 17L17 7M17 7H8M17 7V16" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </NavLink>
+
+            <button
+              className="md:hidden text-ink focus:outline-none z-50 relative"
+              onClick={() => setOpen(!open)}
+              aria-label="Toggle menu"
+            >
+              <div className="w-6 flex flex-col gap-[5px]">
+                <span className={`h-[2px] bg-ink transition-all duration-300 ${open ? "rotate-45 translate-y-[7px]" : ""}`} />
+                <span className={`h-[2px] bg-ink transition-all duration-300 ${open ? "opacity-0" : "opacity-100"}`} />
+                <span className={`h-[2px] bg-ink transition-all duration-300 ${open ? "-rotate-45 -translate-y-[7px]" : ""}`} />
+              </div>
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -98,7 +100,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-ink z-40 md:hidden flex items-center justify-center"
+            className="fixed inset-0 bg-paper z-40 md:hidden flex items-center justify-center"
           >
             <ul className="flex flex-col items-center gap-8 list-none">
               {navLinks.map(({ to, label }, i) => (
@@ -121,7 +123,7 @@ export default function Navbar() {
                 <NavLink
                   to="/contact"
                   onClick={() => setOpen(false)}
-                  className="mt-2 inline-block px-6 py-2.5 border border-gold text-gold text-sm tracking-[0.18em] uppercase"
+                  className="mt-2 inline-block px-6 py-2.5 bg-accent text-ink text-sm tracking-[0.14em] uppercase font-medium"
                 >
                   Contact
                 </NavLink>

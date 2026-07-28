@@ -4,23 +4,23 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        display: ['Fraunces', 'serif'],
+        sans: ['Space Grotesk', 'sans-serif'],
+        display: ['Archivo Black', 'sans-serif'],
       },
       colors: {
         ink: {
-          DEFAULT: '#0a0a09',
-          soft: '#131210',
-          line: '#221f1a',
+          DEFAULT: '#0a0a0a',
+          soft: '#161615',
         },
         paper: {
-          DEFAULT: '#f3efe6',
-          dim: '#9a958c',
+          DEFAULT: '#fafaf7',
+          dim: '#5f5f56',
         },
-        gold: {
-          DEFAULT: '#c9a463',
-          soft: '#e4c98a',
-          dim: '#8a7343',
+        line: '#e7e4da',
+        accent: {
+          DEFAULT: '#e2ff33',
+          soft: '#f3ffb3',
+          dim: '#c7e400',
         },
       },
       letterSpacing: {

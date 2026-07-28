@@ -39,8 +39,7 @@ function AnimatedRoutes() {
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="bg-ink text-paper font-sans min-h-screen overflow-x-hidden">
-        <div className="grain" />
+      <div className="bg-paper text-ink font-sans min-h-screen overflow-x-hidden">
         <ScrollProgress />
         <Navbar />
         <AnimatedRoutes />
